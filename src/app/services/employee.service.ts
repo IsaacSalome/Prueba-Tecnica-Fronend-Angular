@@ -37,11 +37,15 @@ export class EmployeeService {
   }
 
   // 3. Actualizar un empleado
-  updateEmployee(employeeNumber: string,  updatedEmployee: Employee): Observable<Employee> {
-    return this.http.put<Employee>(`${this.baseUrl}/${employeeNumber}`,updatedEmployee
+  updateEmployee(
+    employeeNumber: string,
+    updatedEmployee: Employee
+  ): Observable<Employee> {
+    return this.http.put<Employee>(
+      `${this.baseUrl}/${employeeNumber}`,
+      updatedEmployee
     );
   }
-  
 
   // 4. Eliminar un empleado
   deleteEmployee(employeeNumber: string): Observable<void> {
@@ -52,4 +56,14 @@ export class EmployeeService {
   getGenderStatistics(): Observable<{ [key: string]: number }> {
     return this.http.get<{ [key: string]: number }>(`${this.baseUrl}/gender`);
   }
+
+  // 6 .  Obtener datos para gráficas por estado
+  getStateStatistics(): Observable<{ [key: string]: number }> {
+    return this.http.get<{ [key: string]: number }>(`${this.baseUrl}/state`);
+  }
+
+    // 7 .  Obtener datos para gráficas por estado
+    getCountryStatistics(): Observable<{ [key: string]: number }> {
+      return this.http.get<{ [key: string]: number }>(`${this.baseUrl}/country`);
+    }
 }
