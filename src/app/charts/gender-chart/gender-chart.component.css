@@ -1,0 +1,5 @@
+echarts {
+  width: 100%;  /* Ajustar al ancho completo del contenedor */
+  height: 400px; /* Define una altura fija */
+  display: block;
+}
